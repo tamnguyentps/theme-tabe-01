@@ -30,7 +30,7 @@ Styleguide 13.1
     @include media_desktop {
       padding-left: 0;
       padding-right: 0;
-      border-top: 1px solid #ccc;
+      border-top: 1px solid rgba(39,39,39,0.08);
       padding-top: 16px;
       flex-direction:row;
     }

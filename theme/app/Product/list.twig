@@ -104,7 +104,7 @@ file that was distributed with this source code.
                            {% if item.vars.value is not empty %}value="{{ item.vars.value }}" {% endif %}/>
                 {% endfor %}
             </form>
-            <div class="ec-searchnavRole__topicpath">
+            {# <div class="ec-searchnavRole__topicpath">
                 <ol class="ec-topicpath">
                     <li class="ec-topicpath__item"><a href="{{ url('product_list') }}">{{ 'front.product.all_category'|trans }}</a>
                     </li>
@@ -121,7 +121,7 @@ file that was distributed with this source code.
                         <li class="ec-topicpath__item">{{ 'front.product.search_result__keyword'|trans({ '%name%': search_form.vars.value.name }) }}</li>
                     {% endif %}
                 </ol>
-            </div>
+            </div> #}
             <div class="ec-searchnavRole__infos">
                 <div class="ec-searchnavRole__counter">
                     {% if pagination.totalItemCount > 0 %}
@@ -133,7 +133,7 @@ file that was distributed with this source code.
                 {% if pagination.totalItemCount > 0 %}
                     <div class="ec-searchnavRole__actions">
                         <div class="ec-select">
-                            {{ form_widget(disp_number_form, {'id': '', 'attr': {'class': 'disp-number'}}) }}
+                            {# {{ form_widget(disp_number_form, {'id': '', 'attr': {'class': 'disp-number'}}) }} #}
                             {{ form_widget(order_by_form, {'id': '', 'attr': {'class': 'order-by'}}) }}
                         </div>
                     </div>
@@ -166,7 +166,7 @@ file that was distributed with this source code.
                                 </p>
                             </a>
 
-                            {% if Product.stock_find %}
+                            {# {% if false and Product.stock_find %}
                                 {% set form = forms[Product.id] %}
                                 <form name="form{{ Product.id }}" id="productForm{{ Product.id }}" action="{{ url('product_add_cart', {id:Product.id}) }}" method="post">
                                     <div class="ec-productRole__actions">
@@ -200,7 +200,7 @@ file that was distributed with this source code.
                                         {{ 'front.product.out_of_stock'|trans }}
                                     </button>
                                 </div>
-                            {% endif %}
+                            {% endif %} #}
                         </li>
                     {% endfor %}
                 </ul>

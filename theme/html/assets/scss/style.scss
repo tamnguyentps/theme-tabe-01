@@ -1,8 +1,9 @@
 @import "/node_modules/normalize.css/normalize.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-  font-family: Arial, sans-serif;
-  color:#525263;
+  font-family: Roboto, -apple-system, Arial, sans-serif;
+  color:#4e595d;
   transition: z-index 0ms 5.28455ms;
   background: #f6f6f6;
   margin: 0;

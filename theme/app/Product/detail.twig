@@ -287,7 +287,7 @@ file that was distributed with this source code.
                         </div>
                     {% endif %}
                     {# 関連カテゴリ #}
-                    {% if Product.ProductCategories is not empty %}
+                    {# {% if Product.ProductCategories is not empty %}
                         <div class="ec-productRole__category">
                             <div>{{ 'front.product.related_category'|trans }}</div>
                             {% for ProductCategory in Product.ProductCategories %}
@@ -301,7 +301,7 @@ file that was distributed with this source code.
                                 </ul>
                             {% endfor %}
                         </div>
-                    {% endif %}
+                    {% endif %} #}
                     <form action="{{ url('product_add_cart', {id:Product.id}) }}" method="post" id="form1" name="form1">
                         {% if Product.stock_find %}
                             <div class="ec-productRole__actions">
@@ -317,7 +317,7 @@ file that was distributed with this source code.
                                         </div>
                                     {% endif %}
                                 {% endif %}
-                                <div class="ec-numberInput"><span>{{ 'common.quantity'|trans }}</span>
+                                <div class="ec-numberInput hidden"><span>{{ 'common.quantity'|trans }}</span>
                                     {{ form_widget(form.quantity) }}
                                     {{ form_errors(form.quantity) }}
                                 </div>
@@ -353,7 +353,7 @@ file that was distributed with this source code.
                             </div>
                         </div>
                     </div>
-                    {% if BaseInfo.option_favorite_product %}
+                    {% if false and BaseInfo.option_favorite_product %}
                         <form action="{{ url('product_add_favorite', {id:Product.id}) }}" method="post">
                             <div class="ec-productRole__btn">
                                 {% if is_favorite == false %}
@@ -368,7 +368,15 @@ file that was distributed with this source code.
                             </div>
                         </form>
                     {% endif %}
-                    <div class="ec-productRole__description">{{ Product.description_detail|raw|nl2br }}
+
+                    <div class="ec-productRole__description">
+                        <h3>
+                            {# {{ 'front.product.product_informtion'|trans }} #}
+                            Thông tin sản phẩm
+                        </h3>
+                        <div style="font-size: 14px;">
+                            {{ Product.description_detail|raw|nl2br }}
+                        </div>
                     </div>
                 </div>
             </div>

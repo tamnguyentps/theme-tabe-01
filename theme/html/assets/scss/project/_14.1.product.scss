@@ -14,6 +14,13 @@ include /assets/tmpl/elements/14.1.product.pug
 
 Styleguide 14.1
 */
+#page_product_list {
+  .ec-layoutRole {
+    .ec-layoutRole__contents {
+      width: 85%;
+    }
+  }
+}
 .ec-productRole {
   @include container;
   & &__img {

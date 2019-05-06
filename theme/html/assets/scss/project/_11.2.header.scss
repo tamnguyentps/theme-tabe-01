@@ -34,7 +34,7 @@ Styleguide 11.2
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-    max-width: 1150px;
+    max-width: 95%;
     display: flex;
     flex-wrap: nowrap;
 
@@ -67,7 +67,7 @@ Styleguide 11.2
 
 .ec-headerRole {
   @include container;
-  padding-top: 15px;
+  padding-top: 0px;
   position: relative;
   &:after {
     display: none;
@@ -89,6 +89,16 @@ Styleguide 11.2
   & &__title {
     width: 100%;
   }
+  & &__logo {
+    a {
+      display: none;
+      text-decoration: none;
+      color: #4e595d;
+      @include media_desktop {
+        display: inline-block;
+      }
+    }
+  }
   & &__navSP {
     display: block;
     position: absolute;
@@ -107,10 +117,18 @@ Styleguide 11.2
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 0px;
 
   @include media_desktop {
-    padding-bottom: 40px;
+    margin-bottom: 5px;
+    box-shadow: 0 1px 0 0 rgba(39,39,39,0.08);
+  }
+  .contents {
+    max-width: 1150px;
+    width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   & &__left {
@@ -123,6 +141,7 @@ Styleguide 11.2
     @include media_desktop() {
       display: inline-block;
       margin-top: 10px;
+      border-bottom: 1px #647277 solid;
       @include reset_link;
     }
   }
@@ -255,7 +274,7 @@ Styleguide 11.2.3
 .ec-headerNav {
   text-align: right;
   & &__item {
-    margin-left: 0;
+    margin-left: 10px;
     display: inline-block;
     font-size: 28px;
   }
@@ -275,7 +294,7 @@ Styleguide 11.2.3
     margin-right: 5px;
     font-size: 14px;
     vertical-align: middle;
-    color: black;
+    color: #4e595d;
     @include media_desktop {
       display: inline-block;
     }
@@ -488,7 +507,7 @@ Styleguide 11.2.5
   height: 55px;
   color: #2e3233;;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 20px;
   text-decoration: none;
   text-align: left;
@@ -532,14 +551,15 @@ Styleguide 11.2.5
   border-bottom: 1px solid #E8E8E8;
   padding: 16px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   color: white;
   text-align: left;
-  background: black;
+  // background: black;
+  display: none;
 }
 
 .ec-itemNav__nav > li:hover > a {
-  background: #fafafa;
+  /* background: #fafafa; */
 }
 
 .ec-itemNav__nav > li:hover li:hover > a {
