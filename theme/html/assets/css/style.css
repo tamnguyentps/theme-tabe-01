@@ -4542,6 +4542,7 @@ Styleguide 11.2
   .ec-layoutRole .ec-layoutRole__contentTop {
     padding: 0; }
   .ec-layoutRole .ec-layoutRole__contents {
+    padding-top: 45px;
     margin-right: auto;
     margin-left: auto;
     width: 100%;
@@ -4557,6 +4558,7 @@ Styleguide 11.2
   .ec-layoutRole .ec-layoutRole__mainBetweenColumn {
     width: 100%; }
   .ec-layoutRole .ec-layoutRole__left,
+  .ec-layoutRole .ec-layoutRole__center,
   .ec-layoutRole .ec-layoutRole__right {
     display: none; }
 
@@ -4604,10 +4606,13 @@ Styleguide 11.2
     display: none; }
   .ec-headerRole .ec-headerRole__title {
     width: 100%; }
-  .ec-headerRole .ec-headerRole__logo a {
-    display: none;
-    text-decoration: none;
-    color: #4e595d; }
+  .ec-headerRole .ec-headerRole__logo {
+    width: 100%;
+    text-align: center; }
+    .ec-headerRole .ec-headerRole__logo a {
+      display: inline-block;
+      text-decoration: none;
+      color: #4e595d; }
   .ec-headerRole .ec-headerRole__navSP {
     display: block;
     position: absolute;
@@ -4633,7 +4638,14 @@ Styleguide 11.2
       justify-content: space-between;
   -ms-flex-align: center;
       align-items: center;
-  padding-top: 0px; }
+  padding-top: 0px;
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 1px 0 0 rgba(39, 39, 39, 0.08);
+  transform: translate3d(0%, 0px, 0px);
+  transition: transform .10s;
+  width: 100%; }
   .ec-headerNaviRole:after {
     content: " ";
     display: table; }
@@ -4661,12 +4673,25 @@ Styleguide 11.2
     margin-right: auto; }
   .ec-headerNaviRole .ec-headerNaviRole__left {
     width: calc(100% / 3); }
+    .ec-headerNaviRole .ec-headerNaviRole__left .ec-headerNaviRole__logo {
+      display: none; }
   .ec-headerNaviRole .ec-headerNaviRole__search {
     display: none; }
   .ec-headerNaviRole .ec-headerNaviRole__navSP {
     display: block; }
+  .ec-headerNaviRole .ec-headerNaviRole__center {
+    width: calc(100% / 3);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+    -ms-flex-align: center;
+        align-items: center; }
+    .ec-headerNaviRole .ec-headerNaviRole__center .ec-headerNaviRole__logo {
+      display: inline-block;
+      width: 100%; }
   .ec-headerNaviRole .ec-headerNaviRole__right {
-    width: calc(100% * 2 / 3);
+    width: calc(100% / 3);
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: end;
@@ -4692,17 +4717,15 @@ Styleguide 11.2
   display: block;
   border-radius: 50%;
   box-sizing: border-box;
-  padding: 10px;
   width: 40px;
   height: 40px;
   font-size: 18px;
   text-align: center;
   color: black;
-  background: white;
-  position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 1000; }
+  z-index: 1000;
+  padding: 10px; }
   .ec-headerNavSP .fas {
     vertical-align: top; }
 
@@ -5234,6 +5257,7 @@ sg-wrapper:
 Styleguide 11.3.1
 */
 .ec-footerNavi {
+  display: none;
   padding: 0;
   color: white;
   list-style: none;
@@ -7920,6 +7944,7 @@ Styleguide 22.1
   }
 
   .ec-blockTopBtn{
+    display: none;
     right: 30px;
     bottom: 30px;
   }
@@ -8210,6 +8235,10 @@ Styleguide 22.1
     padding: 8px 0 18px;
   }
 
+  .ec-layoutRole .ec-layoutRole__contents{
+    padding-top: 55px;
+  }
+
   .ec-layoutRole .ec-layoutRole__mainWithColumn{
     width: 75%;
   }
@@ -8219,6 +8248,7 @@ Styleguide 22.1
   }
 
   .ec-layoutRole .ec-layoutRole__left,
+      .ec-layoutRole .ec-layoutRole__center,
       .ec-layoutRole .ec-layoutRole__right{
     display: block;
     width: 25%;
@@ -8248,6 +8278,8 @@ Styleguide 22.1
 
   .ec-headerRole .ec-headerRole__logo a{
     display: inline-block;
+    font-size: 24px;
+    padding: 10px 5px;
   }
 
   .ec-headerRole .ec-headerRole__navSP{
@@ -8257,6 +8289,10 @@ Styleguide 22.1
   .ec-headerNaviRole{
     margin-bottom: 5px;
     box-shadow: 0 1px 0 0 rgba(39, 39, 39, 0.08);
+  }
+
+  .ec-headerNaviRole .ec-headerNaviRole__left .ec-headerNaviRole__logo{
+    display: inline-block;
   }
 
   .ec-headerNaviRole .ec-headerNaviRole__search{
@@ -8285,6 +8321,10 @@ Styleguide 22.1
 
   .ec-headerNaviRole .ec-headerNaviRole__navSP a:hover{
     text-decoration: none;
+  }
+
+  .ec-headerNaviRole .ec-headerNaviRole__center .ec-headerNaviRole__logo{
+    display: none;
   }
 
   .ec-headerNavSP{
