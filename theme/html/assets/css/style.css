@@ -1198,8 +1198,8 @@ Styleguide 2.1.1
   padding: 10px 16px;
   text-decoration: none;
   color: #fff;
-  background-color: #DE5D50;
-  border-color: #DE5D50; }
+  background-color: #16accf;
+  border-color: #16accf; }
   .ec-inlineBtn--action:focus, .ec-inlineBtn--action.focus, .ec-inlineBtn--action:active:focus, .ec-inlineBtn--action:active.focus, .ec-inlineBtn--action.active:focus, .ec-inlineBtn--action.active.focus {
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
@@ -1219,24 +1219,24 @@ Styleguide 2.1.1
     box-shadow: none; }
   .ec-inlineBtn--action:focus, .ec-inlineBtn--action.focus {
     color: #fff;
-    background-color: #d33828;
-    border-color: #93271c; }
+    background-color: #1186a1;
+    border-color: #0a4c5c; }
   .ec-inlineBtn--action:hover {
     color: #fff;
-    background-color: #d33828;
-    border-color: #cb3526; }
+    background-color: #1186a1;
+    border-color: #107e98; }
   .ec-inlineBtn--action:active, .ec-inlineBtn--action.active,
   .open > .ec-inlineBtn--action.dropdown-toggle {
     color: #fff;
-    background-color: #d33828;
-    border-color: #cb3526; }
+    background-color: #1186a1;
+    border-color: #107e98; }
     .ec-inlineBtn--action:active:hover, .ec-inlineBtn--action:active:focus, .ec-inlineBtn--action:active.focus, .ec-inlineBtn--action.active:hover, .ec-inlineBtn--action.active:focus, .ec-inlineBtn--action.active.focus,
     .open > .ec-inlineBtn--action.dropdown-toggle:hover,
     .open > .ec-inlineBtn--action.dropdown-toggle:focus,
     .open > .ec-inlineBtn--action.dropdown-toggle.focus {
       color: #fff;
-      background-color: #b53022;
-      border-color: #93271c; }
+      background-color: #0e6b81;
+      border-color: #0a4c5c; }
   .ec-inlineBtn--action:active, .ec-inlineBtn--action.active,
   .open > .ec-inlineBtn--action.dropdown-toggle {
     background-image: none; }
@@ -1244,10 +1244,10 @@ Styleguide 2.1.1
   fieldset[disabled] .ec-inlineBtn--action:hover,
   fieldset[disabled] .ec-inlineBtn--action:focus,
   fieldset[disabled] .ec-inlineBtn--action.focus {
-    background-color: #DE5D50;
-    border-color: #DE5D50; }
+    background-color: #16accf;
+    border-color: #16accf; }
   .ec-inlineBtn--action .badge {
-    color: #DE5D50;
+    color: #16accf;
     background-color: #fff; }
   .ec-inlineBtn--action .ec-icon img {
     width: 1em;
@@ -1537,8 +1537,8 @@ Styleguide 2.1.2
   padding: 10px 16px;
   text-decoration: none;
   color: #fff;
-  background-color: #DE5D50;
-  border-color: #DE5D50;
+  background-color: #16accf;
+  border-color: #16accf;
   display: block;
   width: 100%;
   height: 56px;
@@ -1564,24 +1564,24 @@ Styleguide 2.1.2
     box-shadow: none; }
   .ec-blockBtn--action:focus, .ec-blockBtn--action.focus {
     color: #fff;
-    background-color: #d33828;
-    border-color: #93271c; }
+    background-color: #1186a1;
+    border-color: #0a4c5c; }
   .ec-blockBtn--action:hover {
     color: #fff;
-    background-color: #d33828;
-    border-color: #cb3526; }
+    background-color: #1186a1;
+    border-color: #107e98; }
   .ec-blockBtn--action:active, .ec-blockBtn--action.active,
   .open > .ec-blockBtn--action.dropdown-toggle {
     color: #fff;
-    background-color: #d33828;
-    border-color: #cb3526; }
+    background-color: #1186a1;
+    border-color: #107e98; }
     .ec-blockBtn--action:active:hover, .ec-blockBtn--action:active:focus, .ec-blockBtn--action:active.focus, .ec-blockBtn--action.active:hover, .ec-blockBtn--action.active:focus, .ec-blockBtn--action.active.focus,
     .open > .ec-blockBtn--action.dropdown-toggle:hover,
     .open > .ec-blockBtn--action.dropdown-toggle:focus,
     .open > .ec-blockBtn--action.dropdown-toggle.focus {
       color: #fff;
-      background-color: #b53022;
-      border-color: #93271c; }
+      background-color: #0e6b81;
+      border-color: #0a4c5c; }
   .ec-blockBtn--action:active, .ec-blockBtn--action.active,
   .open > .ec-blockBtn--action.dropdown-toggle {
     background-image: none; }
@@ -1589,10 +1589,10 @@ Styleguide 2.1.2
   fieldset[disabled] .ec-blockBtn--action:hover,
   fieldset[disabled] .ec-blockBtn--action:focus,
   fieldset[disabled] .ec-blockBtn--action.focus {
-    background-color: #DE5D50;
-    border-color: #DE5D50; }
+    background-color: #16accf;
+    border-color: #16accf; }
   .ec-blockBtn--action .badge {
-    color: #DE5D50;
+    color: #16accf;
     background-color: #fff; }
   .ec-blockBtn--action .ec-icon img {
     width: 1em;
@@ -3835,6 +3835,7 @@ Styleguide 7.3.5
     animation: fadeIn 200ms linear 0s;
     position: relative; }
   .ec-cartNavi .ec-cartNavi__badge {
+    font-family: Roboto, sans-serif;
     display: inline-block;
     border-radius: 99999px;
     box-sizing: border-box;
@@ -3846,7 +3847,7 @@ Styleguide 7.3.5
     color: #fff;
     text-align: left;
     white-space: nowrap;
-    background-color: #DE5D50;
+    background-color: #16accf;
     position: absolute;
     left: 60%;
     top: -10px; }
@@ -3897,15 +3898,18 @@ div(style="height:350px;")
 Styleguide 7.3.6
 */
 .ec-cartNaviIsset {
-  display: none;
-  width: 100%;
+  left: 100vw;
+  width: 100vw;
   text-align: center;
   background: #f8f8f8;
   box-sizing: border-box;
   padding: 16px;
   z-index: 20;
   position: absolute;
-  right: 0; }
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  transition: transform 0.3s linear, opacity 0.3s linear; }
   .ec-cartNaviIsset .ec-cartNaviIsset__cart {
     border-bottom: 1px solid #E8E8E8;
     margin-bottom: 16px;
@@ -3942,7 +3946,7 @@ Styleguide 7.3.6
     font-size: 14px; }
 
 .ec-cartNaviIsset.is-active {
-  display: block; }
+  transform: translateX(-100vw); }
 
 /*
 カートナビゲーションのポップアップ(商品なし)
@@ -4539,10 +4543,15 @@ Styleguide 11.2
   width: 100%;
   transition: transform 0.3s;
   background: #fff; }
+  .ec-layoutRole .ec-layoutRole__header {
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    width: 100%; }
   .ec-layoutRole .ec-layoutRole__contentTop {
     padding: 0; }
   .ec-layoutRole .ec-layoutRole__contents {
-    padding-top: 45px;
+    margin-top: 110px;
     margin-right: auto;
     margin-left: auto;
     width: 100%;
@@ -4632,6 +4641,8 @@ Styleguide 11.2
   -webkit-text-size-adjust: 100%;
   width: 100%;
   max-width: 1425px;
+  position: relative;
+  width: 100%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
@@ -4639,7 +4650,6 @@ Styleguide 11.2
   -ms-flex-align: center;
       align-items: center;
   padding-top: 0px;
-  position: fixed;
   z-index: 1000;
   background: #fff;
   box-shadow: 0 1px 0 0 rgba(39, 39, 39, 0.08);
@@ -5380,7 +5390,7 @@ Styleguide 12.1
   -webkit-text-size-adjust: 100%;
   width: 100%;
   max-width: 1425px;
-  margin-bottom: 24px; }
+  margin-bottom: 10px; }
   .ec-sliderItemRole:after {
     content: " ";
     display: table; }
@@ -6302,7 +6312,9 @@ Styleguide 14.1
   color: #525263;
   -webkit-text-size-adjust: 100%;
   width: 100%;
-  max-width: 1425px; }
+  max-width: 1425px;
+  padding-right: 0px;
+  padding-left: 0px; }
   .ec-productRole:after {
     content: " ";
     display: table; }
@@ -6353,8 +6365,7 @@ Styleguide 14.1
     padding: 0;
     border-bottom: 0; }
   .ec-productRole .ec-productRole__code {
-    padding: 14px 0;
-    border-bottom: 1px dotted #ccc; }
+    padding: 14px 0; }
   .ec-productRole .ec-productRole__category {
     padding: 14px 0;
     border-bottom: 1px dotted #ccc; }
@@ -6372,7 +6383,10 @@ Styleguide 14.1
       min-width: 100%; }
   .ec-productRole .ec-productRole__btn {
     width: 100%;
-    margin-bottom: 10px; }
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 0px; }
   .ec-productRole .ec-productRole__description {
     margin-bottom: 16px; }
 
@@ -8150,9 +8164,11 @@ Styleguide 22.1
   }
 
   .ec-cartNaviIsset{
-    margin-top: 10px;
-    min-width: 256px;
-    max-width: 256px;
+    min-width: 400px;
+    max-width: 400px;
+    position: fixed;
+    top: 55px;
+    right: 400px;
   }
 
   .ec-cartNaviIsset:before{
@@ -8165,6 +8181,10 @@ Styleguide 22.1
     border-color: transparent transparent #f8f8f8 transparent;
     position: absolute;
     top: -9px;
+  }
+
+  .ec-cartNaviIsset.is-active{
+    transform: translateX(-400px);
   }
 
   .ec-cartNaviNull{
@@ -8235,10 +8255,6 @@ Styleguide 22.1
     padding: 8px 0 18px;
   }
 
-  .ec-layoutRole .ec-layoutRole__contents{
-    padding-top: 55px;
-  }
-
   .ec-layoutRole .ec-layoutRole__mainWithColumn{
     width: 75%;
   }
@@ -8284,11 +8300,6 @@ Styleguide 22.1
 
   .ec-headerRole .ec-headerRole__navSP{
     display: none;
-  }
-
-  .ec-headerNaviRole{
-    margin-bottom: 5px;
-    box-shadow: 0 1px 0 0 rgba(39, 39, 39, 0.08);
   }
 
   .ec-headerNaviRole .ec-headerNaviRole__left .ec-headerNaviRole__logo{
@@ -8374,6 +8385,8 @@ Styleguide 22.1
   }
 
   .ec-categoryNaviRole{
+    background: #fff;
+    box-shadow: 0 1px 0 0 rgba(39, 39, 39, 0.08);
     display: block;
     width: 100%;
   }
@@ -8826,6 +8839,7 @@ Styleguide 22.1
   }
 
   .ec-productRole .ec-productRole__btn{
+    position: relative;
     width: 60%;
     margin-bottom: 16px;
     min-width: 350px;

@@ -23,6 +23,8 @@ Styleguide 14.1
 }
 .ec-productRole {
   @include container;
+  padding-right: 0px;
+  padding-left: 0px;
   & &__img {
     margin-right: 0;
     margin-bottom: 20px;
@@ -80,7 +82,7 @@ Styleguide 14.1
   }
   & &__code {
     padding: 14px 0;
-    border-bottom: 1px dotted #ccc;
+    // border-bottom: 1px dotted #ccc;
   }
   & &__category {
     padding: 14px 0;
@@ -110,8 +112,12 @@ Styleguide 14.1
   }
   & &__btn {
     width: 100%;
-    margin-bottom: 10px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 0px;
     @include media_desktop {
+      position: relative;
       width: 60%;
       margin-bottom: 16px;
       min-width: 350px;
