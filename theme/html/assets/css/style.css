@@ -3946,7 +3946,10 @@ Styleguide 7.3.6
     font-size: 14px; }
 
 .ec-cartNaviIsset.is-active {
-  transform: translateX(-100vw); }
+  transform: translateX(-100vw);
+  -webkit-transform: translateX(-100vw);
+  -moz-transform: translateX(-100vw);
+  -o-transform: translateX(-100vw); }
 
 /*
 カートナビゲーションのポップアップ(商品なし)
@@ -3995,15 +3998,16 @@ sg-wrapper:
 Styleguide 7.3.7
 */
 .ec-cartNaviNull {
-  display: none;
-  width: 100%;
+  left: 100vw;
+  width: 100vw;
   text-align: center;
   background: #f8f8f8;
   box-sizing: border-box;
   padding: 16px;
   z-index: 3;
   position: absolute;
-  right: 0; }
+  right: 0;
+  transition: transform 0.3s linear, opacity 0.3s linear; }
   .ec-cartNaviNull .ec-cartNaviNull__message {
     border: 1px solid #D9D9D9;
     padding: 16px 0;
@@ -4015,7 +4019,10 @@ Styleguide 7.3.7
       margin: 0; }
 
 .ec-cartNaviNull.is-active {
-  display: block; }
+  transform: translateX(-100vw);
+  -webkit-transform: translateX(-100vw);
+  -moz-transform: translateX(-100vw);
+  -o-transform: translateX(-100vw); }
 
 /*
 総計
@@ -4551,7 +4558,8 @@ Styleguide 11.2
   .ec-layoutRole .ec-layoutRole__contentTop {
     padding: 0; }
   .ec-layoutRole .ec-layoutRole__contents {
-    margin-top: 110px;
+    margin-top: 38px;
+    padding-top: 15px;
     margin-right: auto;
     margin-left: auto;
     width: 100%;
@@ -8185,12 +8193,17 @@ Styleguide 22.1
 
   .ec-cartNaviIsset.is-active{
     transform: translateX(-400px);
+    -webkit-transform: translateX(-400px);
+    -moz-transform: translateX(-400px);
+    -o-transform: translateX(-400px);
   }
 
   .ec-cartNaviNull{
-    margin-top: 10px;
-    min-width: 256px;
-    max-width: 256px;
+    min-width: 400px;
+    max-width: 400px;
+    position: fixed;
+    top: 55px;
+    right: 400px;
   }
 
   .ec-cartNaviNull:before{
@@ -8203,6 +8216,13 @@ Styleguide 22.1
     border-color: transparent transparent #f8f8f8 transparent;
     position: absolute;
     top: -9px;
+  }
+
+  .ec-cartNaviNull.is-active{
+    transform: translateX(-400px);
+    -webkit-transform: translateX(-400px);
+    -moz-transform: translateX(-400px);
+    -o-transform: translateX(-400px);
   }
 
   .ec-totalBox .ec-totalBox__price{
@@ -8253,6 +8273,11 @@ Styleguide 22.1
   .ec-mypageRole .ec-pageHeader h1{
     margin: 10px 0 48px;
     padding: 8px 0 18px;
+  }
+
+  .ec-layoutRole .ec-layoutRole__contents{
+    margin-top: 38px;
+    margin-top: 105px;
   }
 
   .ec-layoutRole .ec-layoutRole__mainWithColumn{
