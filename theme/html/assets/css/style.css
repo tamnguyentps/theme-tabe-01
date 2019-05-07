@@ -1807,6 +1807,8 @@ Styleguide 2.3.1
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   background-color: #9da3a9; }
+  .ec-blockTopBtn.pagetop {
+    display: none !important; }
 
 /**
 メディアクエリ
@@ -6345,7 +6347,8 @@ Styleguide 14.1
     margin-right: 0;
     margin-bottom: 20px; }
   .ec-productRole .ec-productRole__profile {
-    margin-left: 0; }
+    margin-left: 0;
+    margin-top: 25px; }
   .ec-productRole .ec-productRole__title .ec-headingTitle {
     font-size: 20px; }
   .ec-productRole .ec-productRole__tags {
