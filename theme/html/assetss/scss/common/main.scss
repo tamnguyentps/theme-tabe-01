@@ -1,0 +1,11 @@
+body {
+    & .nologin {
+        
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    body.nologin .ec-layoutRole .ec-layoutRole__contents {
+        margin-top: 0px;
+    }
+}

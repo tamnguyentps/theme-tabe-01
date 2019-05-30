@@ -8,35 +8,47 @@ http://www.lockon.co.jp/
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
-{% set Categories = repository('Eccube\\Entity\\Category').getList() %}
 
-{% macro tree(Category) %}
-    {% from _self import tree %}
-    <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
-        {{ Category.name }}
-    </a>
-    {% if Category.children|length > 0 %}
-        <ul>
-            {% for ChildCategory in Category.children %}
-                <li>
-                    {{ tree(ChildCategory) }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-{% endmacro %}
 
-{# @see https://github.com/bolt/bolt/pull/2388 #}
-{% from _self import tree %}
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">{{ BaseInfo.shop_name }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        {% set Categories = repository('Eccube\\Entity\\Category').getList() %}
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                {% for cat in Categories %}
+                    {% if cat.Children.count() > 0 %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{cat.name}}</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                {% for child in cat.Children %}
+                                    <a class="dropdown-item" href="{{url('product_list')}}?category_id={{child.id}}">{{child.name}}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item"><a href="{{url('product_list')}}?category_id={{cat.id}}" class="nav-link">{{cat.name}}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {# <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="shop.html">Shop</a>
+                        <a class="dropdown-item" href="product-single.html">Single Product</a>
+                        <a class="dropdown-item" href="cart.html">Cart</a>
+                        <a class="dropdown-item" href="checkout.html">Checkout</a>
+                    </div>
+                </li>#}
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
-<div class="ec-categoryNaviRole">
-    <div class="ec-itemNav">
-        <ul class="ec-itemNav__nav">
-            {% for Category in Categories %}
-                <li>
-                    {{ tree(Category) }}
-                </li>
-            {% endfor %}
-        </ul>
+            </ul>
+        </div>
     </div>
-</div>
+    </nav>
+<!-- END nav -->

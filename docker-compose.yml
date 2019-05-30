@@ -17,8 +17,8 @@ services:
   apache:
     image: tabenguyen/eccube4-apache:1.5
     ports:
-      - "8080:80"
-      - "8081:443"
+      - "8090:80"
+      - "8091:443"
     volumes:
       - ./theme/app:/var/www/html/app/template/default
       - ./theme/html:/var/www/html/html/template/default
@@ -45,7 +45,7 @@ services:
       - MYSQL_PASSWORD=eccube4
       - MYSQL_ROOT_PASSWORD=root
     ports:
-      - "8082:80"
+      - "8092:80"
     depends_on:
       - "db"
     networks:
