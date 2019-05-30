@@ -8,6 +8,7 @@ http://www.lockon.co.jp/
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
+{% if false %}
 {% set Categories = repository('Eccube\\Entity\\Category').getList() %}
 
 {% macro tree(Category) %}
@@ -43,3 +44,4 @@ file that was distributed with this source code.
         </ul>
     </div>
 </div>
+{% endif %}
