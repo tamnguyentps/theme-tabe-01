@@ -1,1 +1,0 @@
-{"version":3,"sources":["main.css"],"names":[],"mappings":"AAAA;IACE;QACE,eAAgB;KAAE;CAAE","file":"../../common/main.css","sourcesContent":["@media only screen and (min-width: 768px) {\n  body.nologin .ec-layoutRole .ec-layoutRole__contents {\n    margin-top: 0px; } }\n"]}

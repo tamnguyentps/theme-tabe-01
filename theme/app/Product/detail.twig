@@ -144,6 +144,7 @@ file that was distributed with this source code.
     <script>
         $(function() {
             $('.add-cart').on('click', function(event) {
+                event.preventDefault();
                 {% if form.classcategory_id1 is defined %}
                 // 規格1フォームの必須チェック
                 if ($('#classcategory_id1').val() == '__unselected' || $('#classcategory_id1').val() == '') {
@@ -186,7 +187,8 @@ file that was distributed with this source code.
                 }).done(function(data) {
                     // レスポンス内のメッセージをalertで表示
                     $.each(data.messages, function() {
-                        $('#ec-modal-header').html(this);
+                        alert(this);
+                        {# $('#ec-modal-header').html(this); #}
                     });
 
                     $('#ec-modal-checkbox').prop('checked', true);
@@ -197,7 +199,10 @@ file that was distributed with this source code.
                         type: 'GET',
                         dataType: 'html'
                     }).done(function(html) {
-                        $('.ec-headerRole__cart').html(html);
+                        {# $('.ec-headerRole__cart').html(html); #}
+                        var f = html.split('<span class="ec-cartNavi__badge">')[1];
+                        var ff = f.split('</span>')[0];
+                        $('.nav-item.cta.cta-colored>a').html('<span class="icon-shopping_cart"></span> ['+ff+']');
                     });
                 }).fail(function(data) {
                     alert('{{ 'front.product.add_cart_error'|trans }}');
@@ -207,11 +212,105 @@ file that was distributed with this source code.
                 });
             });
         });
+		$(document).ready(function(){
+            var quantitiy=0;
+		   $('.quantity-right-plus').click(function(e){
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        // If is not undefined
+		            $('#quantity').val(quantity + 1);
+		            // Increment
+		    });
+		     $('.quantity-left-minus').click(function(e){
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        // If is not undefined
+		            // Increment
+                if(quantity>0){
+		            $('#quantity').val(quantity - 1);
+		            }
+		    });
+		});
+	</script>
     </script>
 {% endblock %}
 
 {% block main %}
-    <div class="ec-productRole">
+
+    <section class="ftco-sections" style="padding-top: 2em">
+    	<div class="container">
+    		<div class="row">
+    			<div class=" col-lg-6 mb-5 ftco-animate">
+    				<a href="{{ asset(Product.main_list_image|no_image_product, 'save_image') }}" class="image-popup">
+                        <img src="{{ asset(Product.main_list_image|no_image_product, 'save_image') }}" class="img-fluid" alt="Colorlib Template">
+                    </a>
+    			</div>
+    			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
+    				<h3>{{Product.name}}</h3>
+    				<p class="price"><span>{{ Product.getPrice02IncTaxMax|price }}</span></p>
+    				<p>{{ Product.description_list|raw|nl2br }}</p>
+                    <div class="row mt-4">
+                        <form action="{{ url('product_add_cart', {id:Product.id}) }}" method="post" id="form1" name="form1">
+                        <div class="col-md-12">
+                            {% if Product.stock_find %}
+                                <div class="ec-productRole__actions">
+                                    {% if form.classcategory_id1 is defined %}
+                                        <div class="ec-select">
+                                            {{ form_widget(form.classcategory_id1) }}
+                                            {{ form_errors(form.classcategory_id1) }}
+                                        </div>
+                                        {% if form.classcategory_id2 is defined %}
+                                            <div class="ec-select">
+                                                {{ form_widget(form.classcategory_id2) }}
+                                                {{ form_errors(form.classcategory_id2) }}
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                    <div class="ec-numberInput hidden"><span>{{ 'common.quantity'|trans }}</span>
+                                        {{ form_widget(form.quantity) }}
+                                        {{ form_errors(form.quantity) }}
+                                    </div>
+                                </div>
+                                <p class="w-100"></p>
+                                <p class="text-left"><a href="#" class="add-cart btn btn-black py-3 px-5 ec-blockBtn--action">{{ 'front.product.add_cart'|trans }}</a></p>
+                            {% else %}
+                                <div class="ec-productRole__btn">
+                                    <button type="button" class="ec-blockBtn--action" disabled="disabled">
+                                        {{ 'front.product.out_of_stock'|trans }}
+                                    </button>
+                                </div>
+                            {% endif %}
+                            {{ form_rest(form) }}
+                        </div>
+                        </form>
+                        <div class="ec-modal d-none">
+                            <input type="checkbox" id="ec-modal-checkbox" class="checkbox">
+                            <div class="ec-modal-overlay">
+                                <label for="ec-modal-checkbox" class="ec-modal-overlay-close"></label>
+                                <div class="ec-modal-wrap">
+                                    <label for="ec-modal-checkbox" class="ec-modal-close"><span class="ec-icon"><img src="{{ asset('assets/icon/cross-dark.svg') }}" alt=""/></span></label>
+                                    <div id="ec-modal-header" class="text-center">{{ 'front.product.add_cart_complete'|trans }}</div>
+                                    <div class="ec-modal-box">
+                                        <div class="ec-role">
+                                            <label for="ec-modal-checkbox" class="ec-inlineBtn--cancel">{{ 'front.product.continue'|trans }}</label>
+                                            <a href="{{ url('cart') }}" class="ec-inlineBtn--action">{{ 'common.go_to_cart'|trans }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    <div class="ec-productRole d-none">
         <div class="ec-grid2">
             <div class="ec-grid2__cell">
                 <div class="ec-sliderItemRole">

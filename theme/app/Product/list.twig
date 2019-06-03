@@ -73,6 +73,9 @@ file that was distributed with this source code.
                         dataType: 'html'
                     }).done(function(html) {
                         $('.ec-headerRole__cart').html(html);
+                        var f = html.split('<span class="ec-cartNavi__badge">')[1];
+                        var ff = f.split('</span>')[0];
+                        $('.nav-item.cta.cta-colored>a').html('<span class="icon-shopping_cart"></span> ['+ff+']');
                     });
                 }).fail(function(data) {
                     alert('{{ 'front.product.add_cart_error'|trans }}');
