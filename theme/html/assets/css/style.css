@@ -6159,7 +6159,7 @@ textarea.form-control {
   font-size: 24px; }
 
 .ftco-section {
-  padding: 9em 0;
+  padding: 2em 0;
   position: relative; }
 
 .ftco-choose h2 {
@@ -6851,6 +6851,29 @@ a .mlus {
 
 .cart-qty {
   margin: 0 10px; }
+
+.ec-errorMessage {
+  color: red; }
+
+.ec-halfInput,
+.ec-select,
+.ec-telInput,
+.ec-input {
+  width: 90%; }
+
+.ec-halfInput input {
+  width: 40%; }
+
+.ec-select input,
+.ec-telInput input,
+.ec-input input {
+  width: 80%; }
+
+.ec-halfInput,
+.ec-select,
+.ec-telInput,
+.ec-input {
+  margin: 5px 0; }
 
 @media (min-width: 576px) {
   .container {
@@ -9292,7 +9315,7 @@ a .mlus {
     background: transparent;
     display: none; }
   .ftco-section {
-    padding: 6em 0; }
+    padding: 2em 0; }
   .ftco-choose {
     padding: 3em 0; }
   .ftco-choose .img {

@@ -1513,10 +1513,10 @@ textarea.form-control {
 
 
 .ftco-section {
-	padding: 9em 0;
+	padding: 2em 0;
 	position: relative;
 	@include media-breakpoint-down(sm){
-		padding: 6em 0;
+		padding: 2em 0;
 	}
 }
 
@@ -2512,4 +2512,28 @@ a .mlus  {
 }
 .cart-qty {
 	margin: 0 10px;
+}
+.ec-errorMessage {
+	color: red;
+}
+.ec-halfInput,
+.ec-select,
+.ec-telInput,
+.ec-input {
+	width: 90%
+}
+.ec-halfInput input{
+	width: 40%;
+}
+.ec-select input,
+.ec-telInput input,
+.ec-input input {
+	width: 80%;
+}
+
+.ec-halfInput,
+.ec-select,
+.ec-telInput,
+.ec-input {
+	margin: 5px 0;
 }
