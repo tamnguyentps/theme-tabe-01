@@ -2501,3 +2501,15 @@ textarea.form-control {
     stroke-dashoffset: -136px;
   }
 }
+a .mlus  {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 5px 10px;
+	color: #000000;
+	& :hover {
+		border: 1px solid #ffa45c;
+		background: #ffa45c;
+	}
+}
+.cart-qty {
+	margin: 0 10px;
+}

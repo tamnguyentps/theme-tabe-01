@@ -252,7 +252,6 @@ file that was distributed with this source code.
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
     				<h3>{{Product.name}}</h3>
     				<p class="price"><span>{{ Product.getPrice02IncTaxMax|price }}</span></p>
-    				<p>{{ Product.description_list|raw|nl2br }}</p>
                     <div class="row mt-4">
                         <form action="{{ url('product_add_cart', {id:Product.id}) }}" method="post" id="form1" name="form1">
                         <div class="col-md-12">
@@ -304,8 +303,7 @@ file that was distributed with this source code.
                             </div>
                         </div>
                     </div>
-                    
-                    
+                    {{ Product.description_detail|raw|nl2br }}
     			</div>
     		</div>
     	</div>
