@@ -87,8 +87,8 @@
 		});
 	
 		$('.carousel-testimony').owlCarousel({
-			center: true,
-			loop: false,
+			center: false,
+			loop: true,
 			items:1,
 			margin: 30,
 			stagePadding: 0,

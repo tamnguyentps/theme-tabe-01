@@ -1748,7 +1748,7 @@ input[type="button"].btn-block {
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 90%;
   left: 0;
   z-index: 1000;
   display: none;
@@ -5242,7 +5242,8 @@ h5,
 .ftco-navbar-light {
   background: transparent !important;
   z-index: 3;
-  padding: 0; }
+  padding: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
   .ftco-navbar-light.ftco-navbar-light-2 {
     position: relative;
     top: 0; }

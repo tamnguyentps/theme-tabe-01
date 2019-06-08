@@ -27,9 +27,9 @@ file that was distributed with this source code.
                 <form method="post" action="{{ url('contact') }}" class="h-adr" novalidate>
                     {{ form_widget(form._token) }}
                     <div class="row">
-                    <div class="col-md-12 col-xs-12">
-                    <p class="ec-para-normal">{{ 'front.contact.inquiry_notice'|trans|nl2br }}</p>
-                    </div>
+                        <div class="col-md-12 col-xs-12">
+                            <p class="ec-para-normal">{{ 'front.contact.inquiry_notice'|trans|nl2br }}</p>
+                        </div>
                     </div>
                     <div class="ec-borderedDefs col-md-12">
                         <div class="offset-1">
@@ -38,9 +38,9 @@ file that was distributed with this source code.
                                 {{ form_label(form.name, 'common.name', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class=" row ec-halfInput{{ has_errors(form.name.name01, form.name.name02) ? ' error' }}">
-                                    {{ form_widget(form.name.name01, {'attr': { 'class': 'col-md-5 form-control', 'placeholder': 'common.last_name' }}) }}
-                                    {{ form_widget(form.name.name02, {'attr': { 'class': 'col-md-5 form-control', 'placeholder': 'common.first_name' }}) }}
+                                <div class="row {{ has_errors(form.name.name01, form.name.name02) ? ' error' }}">
+                                    <div class="col-md-5">{{ form_widget(form.name.name01, {'attr': { 'class': 'form-control', 'placeholder': 'common.last_name' }}) }}</div>
+                                    <div class="col-md-5">{{ form_widget(form.name.name02, {'attr': { 'class': 'form-control', 'placeholder': 'common.first_name' }}) }}</div>
                                     <div class="w-100"></div>
                                     {{ form_errors(form.name.name01) }}
                                 </div>
@@ -53,14 +53,14 @@ file that was distributed with this source code.
                                 {{ form_label(form.address, 'common.address', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-select row{{ has_errors(form.address.pref) ? ' error' }}">
-                                    {{ form_widget(form.address.pref, {'attr': { 'class': 'col-md-5 form-control'}} ) }}
-                                    {{ form_widget(form.address.addr01, { 'attr': { 'class': 'col-md-5 form-control', 'placeholder': 'common.address_sample_01' }}) }}
+                                <div class="row {{ has_errors(form.address.pref) ? ' error' }}">
+                                    <div class="col-md-5">{{ form_widget(form.address.pref, {'attr': { 'class': 'form-control'}} ) }}</div>
+                                    <div class="col-md-5">{{ form_widget(form.address.addr01, { 'attr': { 'class': 'form-control', 'placeholder': 'common.address_sample_01' }}) }}</div>
                                     {{ form_errors(form.address.pref) }}
                                     {{ form_errors(form.address.addr01) }}
                                 </div>
-                                <div class="col-md-12  ec-input{{ has_errors(form.address.addr02) ? ' error' }}">
-                                    {{ form_widget(form.address.addr02,  { 'attr': { 'class': 'col-md-10 form-control pr-2', 'placeholder': 'common.address_sample_02' }}) }}
+                                <div class="row {{ has_errors(form.address.addr02) ? ' error' }}">
+                                    <div class="col-md-10">{{ form_widget(form.address.addr02,  { 'attr': { 'class': 'form-control pr-2', 'placeholder': 'common.address_sample_02' }}) }}</div>
                                     {{ form_errors(form.address.addr02) }}
                                 </div>
                             </dd>

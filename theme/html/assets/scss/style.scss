@@ -98,6 +98,7 @@ h5,
     // right: 0;
     z-index: 3;
     padding: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     @include media-breakpoint-down(md) {
         background: $black!important;
         position: relative;
@@ -1137,7 +1138,6 @@ h5,
     }
     button,
     .form-control {
-        ;
         height: 54px !important;
         text-align: center;
         bordeR: 1px solid rgba(0, 0, 0, .05) !important;
