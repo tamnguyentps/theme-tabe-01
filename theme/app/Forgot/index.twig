@@ -13,7 +13,7 @@ file that was distributed with this source code.
 {% form_theme form 'Form/form_div_layout.twig' %}
 
 {% block main %}
-    <div class="ec-role">
+    <div class="ec-role col-md-12 col-xs-12">
         <div class="ec-pageHeader">
             <h1>{{ 'front.forgot.title'|trans }}</h1>
         </div>
@@ -21,14 +21,14 @@ file that was distributed with this source code.
     <div class="ec-forgotRole">
         <form name="form1" id="form1" method="post" action="{{ url('forgot') }}">
             {{ form_widget(form._token) }}
-            <div class="ec-off1Grid">
+            <div class="ec-off1Grid col-md-12 col-xs-12">
                 <div class="ec-off1Grid__cell">
-                    <div class="ec-forgotRole__form">
-                        <div class="ec-forgotRole__intro">
+                    <div class="ec-forgotRole__form row">
+                        <div class="ec-forgotRole__intro  col-md-12 col-xs-12">
                             <p class="ec-para-normal">{{ 'front.forgot.message1'|trans }}</p>
                             <p class="ec-para-normal">{{ 'front.forgot.message2'|trans }}</p>
                         </div>
-                        <div class="ec-borderedDefs">
+                        <div class="ec-borderedDefs col-md-4 col-xs-12">
                             <dl>
                                 <dt>
                                     {{ form_label(form.login_email, 'common.mail_address', { 'label_attr': { 'class': 'ec-label' }}) }}
@@ -44,7 +44,7 @@ file that was distributed with this source code.
                     </div>
                 </div>
             </div>
-            <div class="ec-off4Grid">
+            <div class="ec-off4Grid col-md-12 col-xs-12">
                 <div class="ec-off4Grid__cell">
                     <button type="submit" class="ec-blockBtn--action">{{ 'common.next'|trans }}</button>
                 </div>

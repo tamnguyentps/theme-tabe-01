@@ -8,123 +8,106 @@ http://www.lockon.co.jp/
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
-{% extends 'nologin_frame.twig' %}
+{% extends 'default_frame.twig' %}
 
 {% set body_class = 'registration_page' %}
 
 {% form_theme form 'Form/form_div_layout.twig' %}
 
 {% block javascript %}
-    <script src="{{ asset('assets/js/postalcode.js') }}" charset="UTF-8"></script>
+    <script src="//yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 {% endblock javascript %}
 
 {% block main %}
-    <div class="ec-registerRole">
+    <div class="ec-registerRole col-md-6 offset-md-3">
         <div class="ec-pageHeader">
             <h1>{{ 'front.entry.title'|trans }}</h1>
         </div>
         <div class="ec-off1Grid">
             <div class="ec-off1Grid__cell">
-                <div class=" form-box" style="margin: 0px auto;">
-                    <h1 class=" form-header-title">Tạo tài khoản</h1>
-                    <div class=" form-container">
-                        {# <a href="https://www.leflair.vn/api/v2/account/facebook?" class="jsx-2060435855  btn btn-primary btn-block btn-facebook">
-                            <svg width="32" height="32" viewBox="0 0 32 32">
-                                <title>facebook</title>
-                                <path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path>
-                            </svg>Tạo mới bằng Facebook</a>
-                        <a href="https://www.leflair.vn/api/v2/account/google?" class="jsx-2060435855  btn btn-primary btn-block btn-google">
-                            <svg width="24" height="24" viewBox="0 0 24 24">
-                                <title>ic-google</title>
-                                <path d="M12.225 10.428v3.774h6.367c-.255 1.62-1.923 4.746-6.367 4.746-3.831 0-6.96-3.112-6.96-6.946s3.129-6.946 6.96-6.946c2.184 0 3.638.912 4.471 1.695l3.045-2.875c-1.957-1.789-4.492-2.875-7.517-2.875C6.016 1.007 1 5.922 1 12.005s5.016 10.996 11.224 10.996C18.701 23.001 23 18.539 23 12.254c0-.723-.083-1.276-.18-1.823l-10.595-.002z"></path>
-                            </svg>Tạo mới bằng Google</a> #}
-                        <div class="jsx-3592679178 separator">
-                            <hr class="jsx-3592679178"><span class="jsx-3592679178 text">hoặc</span></div>
-                        <form class="jsx-2241509825">
-                            <div class="form-group">
-                                <label for="email" class="jsx-209944769 "><span class="jsx-209944769">Địa chỉ email</span></label>
-                                <input class=" form-control" name="email" autocomplete="off" type="email" placeholder="example@gmail.com" id="email" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="jsx-209944769 "><span class="jsx-209944769">Tạo mật khẩu</span></label>
-                                <input class=" form-control" name="password" type="password" autocomplete="off" id="password" value="">
-                            </div>
-                            <div class="jsx-2241509825 form-group">
-                                <div data-toggle="buttons" role="group" aria-label="gender" class="jsx-2241509825 btn-group btn-group-toggle">
-                                    <label class="jsx-2241509825 btn btn-outline-secondary active">
-                                        <input type="radio" name="options" id="option1" autocomplete="off" class="jsx-2241509825"> Nữ</label>
-                                    <label class="jsx-2241509825 btn btn-outline-secondary ">
-                                        <input type="radio" name="options" id="option2" autocomplete="off" class="jsx-2241509825"> Nam</label>
-                                </div>
-                            </div>
-                            <button class="btn btn-block btn-primary" type="submit">Tạo tài khoản mới</button>
-                        </form>
-                        <div class=" policy-info"><span class="">Bằng việc tiếp tục, bạn đồng ý với </span><a href="https://support.leflair.vn/hc/vi/articles/214857097-%C4%90i%E1%BB%81u-kho%E1%BA%A3n-v%C3%A0-quy-%C4%91%E1%BB%8Bnh-chung" target="_blank" rel="noreferrer" class="">điều khoản sử dụng</a> của Leflair Vietnam</div>
-                        <div class=" signin-cta">
-                            <p class="">Bạn đã là thành viên? <a class="" href="/vn/auth/signin">Đăng nhập</a></p>
-                        </div>
-                    </div>
-                </div>
-                <form method="post" action="{{ url('entry') }}" novalidate class="h-adr hidden">
+                <form method="post" action="{{ url('entry') }}" novalidate class="h-adr">
                     <span class="p-country-name" style="display:none;">Japan</span>
                     {{ form_widget(form._token) }}
                     <div class="ec-borderedDefs">
-                        {# <dl>
+                        <dl>
                             <dt>
                                 {{ form_label(form.name, 'common.name', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-halfInput{{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
-                                    {{ form_widget(form.name.name01, { 'attr': { 'placeholder': 'common.last_name' }}) }}
-                                    {{ form_widget(form.name.name02, { 'attr': { 'placeholder': 'common.first_name' }}) }}
-                                    {{ form_errors(form.name.name01) }}
-                                    {{ form_errors(form.name.name02) }}
+                                <div class="row {{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
+                                    <div class="col-md-6">{{ form_widget(form.name.name02, { 'attr': { 'class': 'form-control', 'placeholder': 'common.first_name' }}) }}</div>
+                                    <div class="col-md-6">{{ form_widget(form.name.name01, { 'attr': { 'class': 'form-control', 'placeholder': 'common.last_name' }}) }}</div>
+                                    <div class="col-md-12">{{ form_errors(form.name.name01) }}</div>
                                 </div>
                             </dd>
-                        </dl> #}
-                        {# <dl>
+                        </dl>
+                        <dl class="d-none">
+                            <dt>
+                                {{ form_label(form.kana, 'common.kana', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                <div class="ec-halfInput{{ has_errors(form.kana.kana01, form.kana.kana02) ? ' error'}}">
+                                    {{ form_widget(form.kana.kana01, { 'attr': { 'value': 'カナ', 'placeholder': 'common.last_name_kana' }}) }}
+                                    {{ form_widget(form.kana.kana02, { 'attr': { 'value': 'カナ', 'placeholder': 'common.first_name_kana' }}) }}
+                                    {{ form_errors(form.kana.kana01) }}
+                                    {{ form_errors(form.kana.kana02) }}
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="d-none">
+                            <dt>
+                                {{ form_label(form.company_name, 'common.company_name', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                <div class="ec-halfInput{{ has_errors(form.company_name) ? ' error' }}">
+                                    {{ form_widget(form.company_name, {'class': 'form-control col-md-12'}) }}
+                                    {{ form_errors(form.company_name) }}
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
                             <dt>
                                 {{ form_label(form.address, 'common.address', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
-                            <dd>
-                                <div class="ec-select{{ has_errors(form.address.pref) ? ' error' }}">
+                            <dd class="row">
+                                <div class="col-md-12 ec-select{{ has_errors(form.address.pref) ? ' error' }}">
                                     {{ form_widget(form.address.pref) }}
                                     {{ form_errors(form.address.pref) }}
                                 </div>
-                                <div class="ec-input{{ has_errors(form.address.addr01) ? ' error' }}">
-                                    {{ form_widget(form.address.addr01, { 'attr': { 'placeholder': 'common.address_sample_01' }}) }}
+                                <div class="col-md-12 ec-input{{ has_errors(form.address.addr01) ? ' error' }}">
+                                    {{ form_widget(form.address.addr01, { 'attr': { 'class': 'form-control', 'placeholder': 'common.address_sample_01' }}) }}
                                     {{ form_errors(form.address.addr01) }}
                                 </div>
-                                <div class="ec-input{{ has_errors(form.address.addr02) ? ' error' }}">
-                                    {{ form_widget(form.address.addr02,  { 'attr': { 'placeholder': 'common.address_sample_02' }}) }}
+                                <div class="col-md-12 ec-input{{ has_errors(form.address.addr02) ? ' error' }}">
+                                    {{ form_widget(form.address.addr02,  { 'attr': { 'class': 'form-control', 'placeholder': 'common.address_sample_02' }}) }}
                                     {{ form_errors(form.address.addr02) }}
                                 </div>
                             </dd>
-                        </dl> #}
-                        {# <dl>
+                        </dl>
+                        <dl>
                             <dt>
                                 {{ form_label(form.phone_number, 'common.phone_number', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-halfInput{{ has_errors(form.phone_number) ? ' error' }}">
-                                    {{ form_widget(form.phone_number) }}
+                                <div class="ec-telInput{{ has_errors(form.phone_number) ? ' error' }}">
+                                    {{ form_widget(form.phone_number, { 'attr': { 'class': 'form-control'}} ) }}
                                     {{ form_errors(form.phone_number) }}
                                 </div>
                             </dd>
-                        </dl> #}
+                        </dl>
                         <dl>
                             <dt>
                                 {{ form_label(form.email, 'common.mail_address', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
                                 <div class="ec-input{{ has_errors(form.email.first) ? ' error' }}">
-                                    {{ form_widget(form.email.first, { 'attr': { 'placeholder': 'common.mail_address_sample' }}) }}
+                                    {{ form_widget(form.email.first, { 'attr': { 'class': 'form-control', 'placeholder': 'common.mail_address_sample' }}) }}
                                     {{ form_errors(form.email.first) }}
                                 </div>
-                                {# <div class="ec-input{{ has_errors(form.email.second) ? ' error' }}">
-                                    {{ form_widget(form.email.second, { 'attr': { 'placeholder': 'common.repeated_confirm' }}) }}
+                                <div class="ec-input{{ has_errors(form.email.second) ? ' error' }}">
+                                    {{ form_widget(form.email.second, { 'attr': { 'class': 'form-control', 'placeholder': 'common.repeated_confirm' }}) }}
                                     {{ form_errors(form.email.second) }}
-                                </div> #}
+                                </div>
                             </dd>
                         </dl>
                         <dl>
@@ -134,28 +117,17 @@ file that was distributed with this source code.
                             <dd>
                                 <div class="ec-input{{ has_errors(form.password.first) ? ' error' }}">
                                     {{ form_widget(form.password.first, {
-                                        'attr': { 'placeholder': 'common.password_sample'|trans({ '%min%': eccube_config.eccube_password_min_len, '%max%': eccube_config.eccube_password_max_len }) },
+                                        'attr': { 'class': 'form-control', 'placeholder': 'common.password_sample'|trans({ '%min%': eccube_config.eccube_password_min_len, '%max%': eccube_config.eccube_password_max_len }) },
                                         'type': 'password'
                                     }) }}
                                     {{ form_errors(form.password.first) }}
                                 </div>
-                                {# <div class="ec-input{{ has_errors(form.password.second) ? ' error' }}">
+                                <div class="ec-input{{ has_errors(form.password.second) ? ' error' }}">
                                     {{ form_widget(form.password.second, {
-                                        'attr': { 'placeholder': 'common.repeated_confirm'|trans },
+                                        'attr': { 'class': 'form-control', 'placeholder': 'common.repeated_confirm'|trans },
                                         'type': 'password'
                                     }) }}
                                     {{ form_errors(form.password.second) }}
-                                </div> #}
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.sex, 'common.gender', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-radio{{ has_errors(form.sex) ? ' error' }}">
-                                    {{ form_widget(form.sex) }}
-                                    {{ form_errors(form.sex) }}
                                 </div>
                             </dd>
                         </dl>
@@ -178,10 +150,10 @@ file that was distributed with this source code.
                                 </dl>
                             {% endif %}
                         {% endfor %}
-
-                        <dl>
-                            <dt></dt>
-                            <dd>
+                    </div>
+                    <div class="ec-registerRole__actions">
+                        <div class="ec-off4Grid">
+                            <div class="ec-off4Grid__cell text-center">
                                 <div class="ec-checkbox{{ has_errors(form.user_policy_check) ? ' error' }}">
                                     <label>
                                         {{ form_widget(form.user_policy_check) }}
@@ -189,12 +161,6 @@ file that was distributed with this source code.
                                     </label>
                                     {{ form_errors(form.user_policy_check) }}
                                 </div>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="ec-registerRole__actions">
-                        <div class="ec-off4Grid">
-                            <div class="ec-off4Grid__cell">
                                 <button class="ec-blockBtn--action" type="submit" name="mode" value="confirm">{{ 'front.entry.agree'|trans }}</button>
                                 <a class="ec-blockBtn--cancel" href="{{ url('homepage') }}">{{ 'front.entry.disagree'|trans }}</a>
                             </div>

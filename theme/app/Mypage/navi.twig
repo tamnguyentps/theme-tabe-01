@@ -8,27 +8,37 @@ http://www.lockon.co.jp/
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
-<div class="ec-navlistRole">
-    <ul class="ec-navlistRole__navlist">
-        <li class="ec-navlistRole__item {% if mypageno|default('') == 'index' %}active{% endif %}">
-            <a href="{{ url('mypage') }}">{{ 'front.mypage.nav__history'|trans }}</a>
-        </li>
-        {% if BaseInfo.option_favorite_product %}
-            <li class="ec-navlistRole__item {% if mypageno|default('') == 'favorite' %}active{% endif %}">
-                <a href="{{ url('mypage_favorite') }}">{{ 'front.mypage.nav__favorite'|trans }}</a>
-            </li>
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link {% if mypageno|default('') == 'index' %}active{% endif %}" 
+            href="{{ url('mypage') }}"
+            role="tab" aria-controls="nav-home" aria-selected="true">
+            {{ 'front.mypage.nav__history'|trans }}
+        </a>
+        {% if false and BaseInfo.option_favorite_product %}
+            <a class="nav-item nav-link {% if mypageno|default('') == 'favorite' %}active{% endif %}" 
+                href="{{ url('mypage_favorite') }}"
+                role="tab" aria-controls="nav-home" aria-selected="true">
+                {{ 'front.mypage.nav__favorite'|trans }}
+            </a>
         {% endif %}
-        <li class="ec-navlistRole__item {% if mypageno|default('') == 'change' %}active{% endif %}">
-            <a href="{{ url('mypage_change') }}">{{ 'front.mypage.nav__customer'|trans }}</a>
-        </li>
-        <li class="ec-navlistRole__item {% if mypageno|default('') == 'delivery' %}active{% endif %}">
-            <a href="{{ url('mypage_delivery') }}">{{ 'front.mypage.nav__customer_address'|trans }}</a>
-        </li>
-        <li class="ec-navlistRole__item {% if mypageno|default('') == 'withdraw' %}active{% endif %}">
-            <a href="{{ url('mypage_withdraw') }}">{{ 'front.mypage.nav__withdrow'|trans }}</a>
-        </li>
-    </ul>
-</div>
+        <a class="nav-item nav-link {% if mypageno|default('') == 'change' %}active{% endif %}" 
+            href="{{ url('mypage_change') }}"
+            role="tab" aria-controls="nav-home" aria-selected="true">
+            {{ 'front.mypage.nav__customer'|trans }}
+        </a>
+        <a class="nav-item nav-link {% if mypageno|default('') == 'delivery' %}active{% endif %}" 
+            href="{{ url('mypage_delivery') }}"
+            role="tab" aria-controls="nav-home" aria-selected="true">
+            {{ 'front.mypage.nav__customer_address'|trans }}
+        </a>
+        <a class="nav-item nav-link {% if mypageno|default('') == 'withdraw' %}active{% endif %}" 
+            href="{{ url('mypage_withdraw') }}"
+            role="tab" aria-controls="nav-home" aria-selected="true">
+            {{ 'front.mypage.nav__withdrow'|trans }}
+        </a>
+    </div>
+</nav>
 
 <div class="ec-welcomeMsg">
     <p>{{ 'front.mypage.welcome'|trans }} {{ app.user.name01|format_name(app.user.name02) }}</p>

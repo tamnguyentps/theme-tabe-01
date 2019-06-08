@@ -35,8 +35,12 @@ file that was distributed with this source code.
                         <li class="nav-item"><a href="{{url('product_list')}}?category_id={{cat.id}}" class="nav-link">{{cat.name}}</a></li>
                     {% endif %}
                 {% endfor %}
-                <li class="nav-item"><a href="/help/about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item"><a href="{{ url('mypage') }}" class="nav-link">{{'front.block.login.mypage' | trans}}</a></li>
+                    <li class="nav-item"><a href="{{url('logout')}}" class="nav-link">{{ 'front.block.login.logout'| trans}}</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{{url('mypage_login')}}" class="nav-link">{{ 'front.block.login.login'| trans}}</a></li>
+                {% endif %}
                 <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span class="icon-shopping_cart"></span>[{{ totalQuantity|number_format }}]</a></li>
 
             </ul>

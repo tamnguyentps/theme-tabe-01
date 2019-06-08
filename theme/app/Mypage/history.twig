@@ -15,7 +15,7 @@ file that was distributed with this source code.
 {% set body_class = 'mypage' %}
 
 {% block main %}
-    <div class="ec-layoutRole__main">
+    <div class="ec-layoutRole__main mb-5">
         <div class="ec-mypageRole">
             <div class="ec-pageHeader">
                 <h1>{{ 'front.mypage.title'|trans }}/{{ 'front.mypage.nav__history_detail'|trans }}</h1>
@@ -55,15 +55,17 @@ file that was distributed with this source code.
 
                 </div>
                 <div class="ec-orderDelivery">
+                    <hr>
                     <div class="ec-rectHeading">
                         <h2>{{ 'front.mypage.delivery_info'|trans }}</h2>
                     </div>
                     {% for Shipping in Order.Shippings %}
-                        <div class="ec-orderDelivery__title">{{ 'front.mypage.delivery'|trans }}{% if Order.multiple %}({{ loop.index }}){% endif %}</div>
+                        <div class="row">
+                        <div class="col-md-4 col-sm-6">
                         {% for orderItem in Shipping.productOrderItems %}
-                            <div class="ec-orderDelivery__item">
-                                <div class="ec-imageGrid">
-                                    <div class="ec-imageGrid__img">
+                            <div class="ec-orderDelivery__item mb-2">
+                                <div class="ec-imageGrid row">
+                                    <div class="ec-imageGrid__img col-md-6">
                                         {% if orderItem.product is null %}
                                             <img src="{{ asset(''|no_image_product, 'save_image') }}"/>
                                         {% else %}
@@ -71,13 +73,13 @@ file that was distributed with this source code.
                                                  alt="{{ orderItem.productName }}"/>
                                         {% endif %}
                                     </div>
-                                    <div class="ec-imageGrid__content">
+                                    <div class="ec-imageGrid__content col-md-6">
                                         <p>
                                             {% if orderItem.Product is not null and orderItem.Product.Status.id == constant('Eccube\\Entity\\Master\\ProductStatus::DISPLAY_SHOW') %}
                                                 <a href="{{ url('product_detail', {'id': orderItem.Product.id}) }}">{{ orderItem.productName }}</a>
                                             {% else %}
                                                 {{ orderItem.productName }}
-                                            {% endif %} ×{{ orderItem.quantity }}
+                                            {% endif %}
                                         </p>
                                         {% if orderItem.ProductClass is not null %}
                                             {% if orderItem.ProductClass.ClassCategory1 is not null %}
@@ -99,54 +101,29 @@ file that was distributed with this source code.
                                 </div>
                             </div>
                         {% endfor %}
-                        <div class="ec-orderDelivery__address">
+                        </div>
+                        <div class="ec-definitions--soft  col-md-3 col-sm-6">
+                            <dt>{{ 'front.mypage.delivery_provider'|trans }} :</dt>
+                            <dd>{{ Shipping.shipping_delivery_name }}</dd>
+                        </div>
+                        <div class="ec-orderDelivery__address col-md-5 col-sm-6">
                             <p>{{ Shipping.name01|format_name(Shipping.name02) }}</p>
                             <p>{{ format_address(Shipping.addr01, Shipping.addr02, Shipping.pref, Shipping.postal_code) }}</p>
                             <p>{{ Shipping.phone_number }}</p>
                         </div>
-                        <div class="ec-definitions--soft">
-                            <dt>{{ 'front.mypage.delivery_provider'|trans }} :</dt>
-                            <dd>{{ Shipping.shipping_delivery_name }}</dd>
-                        </div>
-                        <div class="ec-definitions--soft">
-                            <dt>{{ 'front.mypage.delivery_date'|trans }} :</dt>
-                            <dd>{{ Shipping.shipping_delivery_date|date_day_with_weekday|default('common.select__unspecified'|trans) }}</dd>
-                        </div>
-                        <div class="ec-definitions--soft">
-                            <dt>{{ 'front.mypage.delivery_time'|trans }} :</dt>
-                            <dd>{{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}</dd>
-                        </div>
                     {% endfor %}
                 </div>
                 <div class="ec-orderPayment">
+                <hr>
                     <div class="ec-rectHeading">
                         <h2>{{ 'front.mypage.payment_info'|trans }}</h2>
                     </div>
                     <p>{{ 'front.mypage.payment'|trans }} : {{ Order.PaymentMethod }}</p>
                 </div>
-                <div class="ec-orderConfirm">
-                    <div class="ec-rectHeading">
-                        <h2>{{ 'front.mypage.message'|trans }}</h2>
-                    </div>
-                    <p>{{ Order.message|nl2br|default('front.mypage.message_not_found'|trans) }}</p>
-                </div>
-                <div class="ec-orderMails">
-                    <div class="ec-rectHeading">
-                        <h2>{{ 'front.mypage.mail_list'|trans }}</h2>
-                    </div>
-                    {% for MailHistory in Order.MailHistories %}
-                        <div class="ec-orderMail">
-                            <div class="ec-orderMail__time">{{ MailHistory.send_date|date_sec }}</div>
-                            <div class="ec-orderMail__link"><a>{{ MailHistory.mail_subject }}</a></div>
-                            <div class="ec-orderMail__body">{{ MailHistory.mail_body|nl2br }}<p class="ec-orderMail__close"><a>{{ 'common.close'|trans }}</a></p></div>
-                        </div>
-                    {% else %}
-                        <p class="ec-reportDescription">{{ 'front.mypage.mail_not_found'|trans }}</p>
-                    {% endfor %}
-                </div>
             </div>
             <div class="ec-orderRole__summary">
-                <div class="ec-totalBox">
+            <hr>
+                <div class="ec-totalBox text-right">
                     <dl class="ec-totalBox__spec">
                         <dt>{{ 'common.subtotal'|trans }}</dt>
                         <dd>{{ Order.subtotal|price }}</dd>
@@ -165,9 +142,10 @@ file that was distributed with this source code.
                             <dd>{{ (0 - Order.discount)|price }}</dd>
                         </dl>
                     {% endif %}
-                    <div class="ec-totalBox__total">{{ 'common.total'|trans }}<span
-                                class="ec-totalBox__price">{{ Order.payment_total|price }}</span><span
-                                class="ec-totalBox__taxLabel">{{ 'common.tax_include'|trans }}</span></div>
+                    <dl class="ec-totalBox__spec">
+                        <dt>{{ 'common.total'|trans }}</dt>
+                        <dd>{{ Order.payment_total|price }}<span class="ec-totalBox__taxLabel">{{ 'common.tax_include'|trans }}</span></dd>
+                    </dl>
                     {% if stockOrder %}
                         <a href="{{ url('mypage_order', {'order_no': Order.order_no }) }}"
                        class="ec-blockBtn--action load-overlay" {{ csrf_token_for_anchor() }} data-method="put"
@@ -180,9 +158,6 @@ file that was distributed with this source code.
                     </p>
                 {% endif %}
             </div>
-        </div>
-        <div class="ec-role">
-            <a href="{{ url('mypage') }}" class="ec-inlineBtn">{{ 'common.back'|trans }}</a>
         </div>
     </div>
 {% endblock %}

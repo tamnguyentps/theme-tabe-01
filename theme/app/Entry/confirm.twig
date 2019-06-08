@@ -15,11 +15,11 @@ file that was distributed with this source code.
 {% form_theme form 'Form/form_div_layout.twig' %}
 
 {% block main %}
-    <div class="ec-registerRole">
+    <div class="ec-registerRole col-md-6 offset-md-3 text-center">
         <div class="ec-pageHeader">
             <h1>{{ 'front.entry.confirm_title'|trans }}</h1>
         </div>
-        <div class="ec-off1Grid">
+        <div class="ec-off1Grid ">
             <div class="ec-off1Grid__cell">
                 <form method="post" action="{{ url('entry') }}">
                     {{ form_widget(form._token) }}
@@ -38,25 +38,6 @@ file that was distributed with this source code.
                         </dl>
                         {{ form_widget(form.kana.kana01, { type : 'hidden' }) }}
                         {{ form_widget(form.kana.kana02, { type : 'hidden' }) }}
-                        <dl>
-                            <dt>
-                                {{ form_label(form.company_name, 'common.company_name', { 'label_attr': { 'class': 'ec-label'}}) }}
-                            </dt>
-                            <dd>
-                                {{ form.company_name.vars.data }}
-                                {{ form_widget(form.company_name, { type : 'hidden' }) }}
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.postal_code) }}
-                            </dt>
-                            <dd>
-                                {# 郵便番号 #}
-                                <span>{{ 'common.postal_symbol'|trans }}</span>{{ form.postal_code.vars.data }}
-                                {{ form_widget(form.postal_code, { type : 'hidden' }) }}
-                            </dd>
-                        </dl>
                         <dl>
                             <dt>
                                 {{ form_label(form.address, 'common.address', { 'label_attr': { 'class': 'ec-label' }}) }}
@@ -95,34 +76,6 @@ file that was distributed with this source code.
                                 ********
                                 {{ form_widget(form.password.first, { type : 'hidden' }) }}
                                 {{ form_widget(form.password.second, { type : 'hidden' }) }}
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.birth, 'common.birth_day', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                {{ form.birth.vars.data ? form.birth.vars.data|date_day() }}
-                                {{ form_widget(form.birth.day, { type : 'hidden' }) }}
-                                {{ form_widget(form.birth.month, { type : 'hidden' }) }}
-                                {{ form_widget(form.birth.year, { type : 'hidden' }) }}
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.sex, 'common.gender', {'label_attr': {'class': 'ec-label'}}) }}
-                            </dt>
-                            <dd>
-                                {{ form.sex.vars.data }}
-                                {{ form_widget(form.sex, { type: 'hidden'}) }}
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.job, 'common.job', {'label_attr': {'class': 'ec-label'}}) }}
-                            </dt>
-                            <dd>{{ form.job.vars.data }}
-                                {{ form_widget(form.job, { type: 'hidden'}) }}
                             </dd>
                         </dl>
 

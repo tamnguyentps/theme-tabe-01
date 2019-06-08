@@ -45,18 +45,17 @@ file that was distributed with this source code.
                         <div class="ec-addressList">
                             {% for CustomerAddress in Customer.CustomerAddresses %}
                                 <div class="ec-addressList__item">
-                                    <a class="ec-addressList__remove" href="{{ url('mypage_delivery_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
-                                        <div class="ec-icon">
-                                            <img src="{{ asset('assets/icon/cross.svg') }}" alt="remove">
-                                        </div>
-                                    </a>
                                     <div class="ec-addressList__address">
                                         <div>{{ CustomerAddress.name01 }}&nbsp;{{ CustomerAddress.name02 }}</div>
                                         <div>{{ format_address(CustomerAddress.addr01, CustomerAddress.addr02, CustomerAddress.pref, CustomerAddress.postal_code) }}</div>
                                         <div>{{ CustomerAddress.phone_number }}</div>
                                     </div>
                                     <div class="ec-addressList__action">
-                                        <a class="ec-inlineBtn" href="{{ url('mypage_delivery_edit', { id : CustomerAddress.id }) }}">{{ 'common.change'|trans }}</a>
+                                        <a class="ec-inlineBtn" href="{{ url('mypage_delivery_edit', { id : CustomerAddress.id }) }}"><i class="ion-md-build"></i></a>
+                                        | 
+                                        <a class="ec-addressList__remove" href="{{ url('mypage_delivery_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
+                                            <i class="ion-md-trash"></i>
+                                        </a>
                                     </div>
                                 </div>
                             {% endfor %}

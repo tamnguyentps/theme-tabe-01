@@ -86,42 +86,45 @@ $(function() {
             {% for orderItem in OrderItems %}
                 {% set idx = loop.index0 %}
                 {% set itemvalue = 0 %}
-                <div id="multiple_list__item_box--{{ idx }}" class="ec-AddAddress__add">
-                    <div class="ec-AddAddress__item">
-                        <div class="ec-AddAddress__itemThumb">
-                            <img src="{{ asset(orderItem.product.MainListImage|no_image_product, 'save_image') }}">
-                        </div>
-                        <div class="ec-AddAddress__itemtContent">
-                            <div class="ec-AddAddress__itemtTitle">{{ orderItem.productName }}
+                <div id="multiple_list__item_box--{{ idx }}" class="card mb-3">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img  style="max-height: 150px;" class="img" src="{{ asset(orderItem.product.MainListImage|no_image_product, 'save_image') }}">
                             </div>
-                            {% if orderItem.productClass.classCategory1 %}
-                                <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory1 }}</div>
-                            {% endif %}
-                            {% if orderItem.productClass.classCategory2 %}
-                                <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory2 }}</div>
-                            {% endif %}
-                            <div class="ec-AddAddress__itemtPrice">{{ 'common.subtotal__with_separator'|trans }}{{ orderItem.totalPrice|price }}</div>
-
-                            {% for key, value in compItemQuantities %}
-                                {% if orderItem.productClass.id == key %}
-                                    <div class="ec-AddAddress__itemtNumber" id="multiple_list__value--{{ idx }}_{{ key }}">{{ 'common.quantity'|trans }}：{{ value }}</div>
-                                    {% set itemvalue = value %}
+                            <div class="col-md-9">
+                                <div class="ec-AddAddress__itemtTitle">{{ orderItem.productName }}
+                                </div>
+                                {% if orderItem.productClass.classCategory1 %}
+                                    <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory1 }}</div>
                                 {% endif %}
-                            {% endfor %}
+                                {% if orderItem.productClass.classCategory2 %}
+                                    <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory2 }}</div>
+                                {% endif %}
+                                <div class="ec-AddAddress__itemtPrice">{{ 'common.subtotal__with_separator'|trans }}{{ orderItem.totalPrice|price }}</div>
+
+                                {% for key, value in compItemQuantities %}
+                                    {% if orderItem.productClass.id == key %}
+                                        <div class="ec-AddAddress__itemtNumber" id="multiple_list__value--{{ idx }}_{{ key }}">{{ 'common.quantity'|trans }}：{{ value }}</div>
+                                        {% set itemvalue = value %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
 
-                    <div id="item{{ idx }}">
+                    <div id="item{{ idx }}" >
                         {% for shipping in form.shipping_multiple[idx].shipping %}
-                            <div id="item{{ idx }}-{{ loop.index0 }}" data-itemidx="{{ loop.index0 }}" class="ec-AddAddress__select shipping_item item{{ idx }}">
-                                <div id="multiple_list__shipping_address--{{ idx }}_{{ loop.index0 }}" class="ec-AddAddress__selectAddress">
+                            <div id="item{{ idx }}-{{ loop.index0 }}" data-itemidx="{{ loop.index0 }}" class="col-md-12 ec-AddAddress__select shipping_item item{{ idx }}">
+                                <div class="row">
+                                <div id="multiple_list__shipping_address--{{ idx }}_{{ loop.index0 }}" class="col-md-8">
                                     <div class="ec-select">
                                         <label>{{ 'front.shopping.delivery_to'|trans }}</label>
                                         {{ form_widget(shipping.customer_address, {'attr': {'class': 'shipping'}}) }}
                                         {{ form_errors(shipping.customer_address) }}
                                     </div>
                                 </div>
-                                <div id="multiple_list__shipping_quantity--{{ idx }}_{{ loop.index0 }}" class="ec-AddAddress__selectNumber">
+                                <div id="multiple_list__shipping_quantity--{{ idx }}_{{ loop.index0 }}" class="col-md-2 ec-AddAddress__selectNumber">
                                     <div class="ec-input">
                                         <label>{{ 'common.quantity'|trans }}</label>
                                         {% for key, value in compItemQuantities %}
@@ -133,20 +136,27 @@ $(function() {
                                         {% endfor %}
                                     </div>
                                 </div>
-
-                                <button id="button__delete--{{ idx }}_{{ loop.index0 }}" type="button" class="btn ec-inlineBtn delete"
-                                        {% if loop.index0 == 0 %}style="display:none;"{% endif %}
-                                        data-itemidx="{{ idx }}-{{ loop.index0 }}">{{'common.delete'|trans}}</button>
+                                <div class="col-md-2">
+                                    <div class="ec-input">
+                                        <label class="w-100">&nbsp;</label>
+                                        <button id="button__delete--{{ idx }}_{{ loop.index0 }}" type="button" class="btn ec-inlineBtn delete"
+                                            {% if loop.index0 == 0 %}style="display:none;"{% endif %}
+                                            data-itemidx="{{ idx }}-{{ loop.index0 }}">
+                                            {{'common.delete'|trans}}
+                                            </button>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         {% endfor %}
                     </div>
-
-                    <div id="multiple_list__add_button{{ idx }}" class="ec-AddAddress__btn">
-                        <button id="button__add{{ idx }}" type="button" class="ec-inlineBtn add" data-idx="{{ idx }}">{{ 'front.shopping.shipping_add_new_shipping__short'|trans }}</button>
+                    <div class="card-footer">
+                    <div id="multiple_list__add_button{{ idx }}" class="ec-AddAddress__btn col-md-3">
+                        <button id="button__add{{ idx }}" type="button" class="btn btn-info add" data-idx="{{ idx }}">{{ 'front.shopping.shipping_add_new_shipping__short'|trans }}</button>
+                    </div>
                     </div>
                 </div>
             {% endfor %}
-
             <div class="ec-AddAddress__actions">
                 <div class="ec-off4Grid">
                     <div class="ec-off4Grid__cell">

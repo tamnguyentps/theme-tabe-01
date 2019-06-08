@@ -17,7 +17,7 @@ file that was distributed with this source code.
         <div class="ec-pageHeader">
             <h1>{{ 'front.contact.title'|trans }}</h1>
         </div>
-        <div class="ec-off1Grid">
+        <div class="ec-off1Grid text-center">
             <div class="ec-off1Grid__cell">
                 <form method="post" action="{{ url('contact') }}" class="h-adr">
                     {{ form_widget(form._token) }}
@@ -36,16 +36,6 @@ file that was distributed with this source code.
                         </dl>
                         {{ form_widget(form.kana.kana01, { type : 'hidden' }) }}
                         {{ form_widget(form.kana.kana02, { type : 'hidden' }) }}
-                        <dl>
-                            <dt>
-                                {{ form_label(form.postal_code) }}
-                            </dt>
-                            <dd>
-                                {# 郵便番号 #}
-                                <span><span>{{ 'common.postal_symbol'|trans }}</span></span>{{ form.postal_code.vars.data }}
-                                {{ form_widget(form.postal_code, { type : 'hidden' }) }}
-                            </dd>
-                        </dl>
                         <dl>
                             <dt>
                                 {{ form_label(form.address, 'common.address', { 'label_attr': { 'class': 'ec-label' }}) }}

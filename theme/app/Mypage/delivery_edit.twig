@@ -42,9 +42,9 @@ file that was distributed with this source code.
                                         {{ form_label(form.name, 'common.name', { 'label_attr': { 'class': 'ec-label' }}) }}
                                     </dt>
                                     <dd>
-                                        <div class="ec-halfInput{{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
-                                            {{ form_widget(form.name.name01, { 'attr': { 'placeholder': 'common.last_name' }}) }}
-                                            {{ form_widget(form.name.name02, { 'attr': { 'placeholder': 'common.first_name' }}) }}
+                                        <div class="row {{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
+                                            <div class="col-md-6">{{ form_widget(form.name.name02, { 'attr': { 'class': 'form-control', 'placeholder': 'common.last_name' }}) }}</div>
+                                            <div class="col-md-6">{{ form_widget(form.name.name01, { 'attr': { 'class': 'form-control', 'placeholder': 'common.last_name' }}) }}</div>
                                             {{ form_errors(form.name.name01) }}
                                             {{ form_errors(form.name.name02) }}
                                         </div>
@@ -52,7 +52,7 @@ file that was distributed with this source code.
                                 </dl>
                                 {{ form_widget(form.kana.kana01, { type : 'hidden', value: 'カナ'}) }}
                                 {{ form_widget(form.kana.kana02, { type : 'hidden', value: 'カナ'}) }}
-                                <dl>
+                                <dl class="d-none">
                                     <dt>
                                         {{ form_label(form.company_name, 'common.company_name', { 'label_attr': { 'class': 'ec-label' }}) }}
                                     </dt>
@@ -63,7 +63,7 @@ file that was distributed with this source code.
                                         </div>
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl class="d-none">
                                     <dt>
                                         {{ form_label(form.postal_code) }}
                                     </dt>
@@ -84,17 +84,17 @@ file that was distributed with this source code.
                                     <dt>
                                         {{ form_label(form.address, 'common.address', { 'label_attr': { 'class': 'ec-label' }}) }}
                                     </dt>
-                                    <dd>
-                                        <div class="ec-select{{ has_errors(form.address.pref) ? ' error' }}">
+                                    <dd class="row">
+                                        <div class="col-md-6 ec-select{{ has_errors(form.address.pref) ? ' error' }}">
                                             {{ form_widget(form.address.pref) }}
                                             {{ form_errors(form.address.pref) }}
                                         </div>
-                                        <div class="ec-input{{ has_errors(form.address.addr01) ? ' error' }}">
-                                            {{ form_widget(form.address.addr01, { 'attr': { 'placeholder': 'common.address_sample_01' }}) }}
+                                        <div class="col-md-6 ec-input{{ has_errors(form.address.addr01) ? ' error' }}">
+                                            {{ form_widget(form.address.addr01, { 'attr': {'class':'form-control', 'placeholder': 'common.address_sample_01' }}) }}
                                             {{ form_errors(form.address.addr01) }}
                                         </div>
-                                        <div class="ec-input{{ has_errors(form.address.addr02) ? ' error' }}">
-                                            {{ form_widget(form.address.addr02,  { 'attr': { 'placeholder': 'common.address_sample_02' }}) }}
+                                        <div class="col-md-12  ec-input{{ has_errors(form.address.addr02) ? ' error' }}">
+                                            {{ form_widget(form.address.addr02,  { 'attr': { 'class':'form-control','placeholder': 'common.address_sample_02' }}) }}
                                             {{ form_errors(form.address.addr02) }}
                                         </div>
                                     </dd>
@@ -105,7 +105,7 @@ file that was distributed with this source code.
                                     </dt>
                                     <dd>
                                         <div class="ec-telInput{{ has_errors(form.phone_number) ? ' error' }}">
-                                            {{ form_widget(form.phone_number) }}
+                                           {{ form_widget(form.phone_number,  { 'attr': { 'class':'form-control'}}) }}
                                             {{ form_errors(form.phone_number) }}
                                         </div>
                                     </dd>
